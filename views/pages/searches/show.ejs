@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Bookcase</title>
+    <title>Book Collection</title>
+    <link rel="stylesheet"    href="styles/reset.css"/>
+    <link rel="stylesheet"    href="styles/base.css"/>
+    <link rel="stylesheet"    href="styles/icons.css"/>
+    <link rel="stylesheet"    href="styles/layout.css"/>
+    <link rel="stylesheet"    href="styles/modules.css"/>
 </head>
 <body>
     <h1>My Bookcase</h1>
-    <p><a href="../index.ejs">Home</a></p>
+    <p><a href="/">Home</a></p>
         <ul>
             <% arrayOfBooks.forEach(item => { %>
                 <img src="<%= item.image %>"/>
