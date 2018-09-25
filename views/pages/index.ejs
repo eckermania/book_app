@@ -13,9 +13,10 @@
     
 </head>
 <body>
-    <main>
-        <h4>Search by Title or Author</h4>
-        <form action="/searches" method="post">
+    <div class = grid-container>
+       <div class = "a"> <nav><h3>BEST BOOKS</h3></nav></div>
+       <div class = "b"><h4>Search by Title or Author</h4></div> 
+       <div class = "c"> <form action="/searches" method="post">
             <input type="text" name="search" placeholder="Enter a title or author" required>
             <fieldset>
                 <label for="title">
@@ -29,8 +30,10 @@
                     <input type="radio" name="search" value="author" required>
                 </label>
             </fieldset>
-            <button type="submit">Search the Google Book API</button>
+            <button type="submit">Search the Google Book API</button>  
         </form>
-    </main>
+    </div>
+    <div class = "d"><footer>SOME CIRCLES</footer></div>
+    </div>
 </body>
 </html>
