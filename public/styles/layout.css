@@ -1,0 +1,95 @@
+.a { grid-area: a; }
+.b { grid-area: b; }
+.c { grid-area: c; }
+.d { grid-area: d; }
+
+
+.grid-container {
+ 
+  display: grid;
+  justify-content: start;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "a a a a"
+    "b b b b"
+    "c c c c"
+    "d d d d";
+}
+
+.a{
+  background-color: rgb(201, 55, 55);
+  width: 480px;
+  height:75px; 
+ 
+ }
+
+ .b{
+  background-color: rgb(48, 166, 187);
+  width: 480px;
+  height:75px; 
+ 
+ }
+
+ .c{
+  background-color: rgb(201, 138, 55);
+  width: 480px;
+  height:750px; 
+ 
+ }
+
+ .d{
+  background-color: rgb(201, 55, 92);
+  width: 480px;
+  height:75px; 
+ 
+ }
+
+ .cshow{
+  background-color: rgb(201, 138, 55);
+  width: 480px;
+  height:4000px; 
+ 
+ }
+
+
+
+
+
+ @media only screen and (min-width: 769px){
+
+
+  .a{
+    
+    width: 960px;
+    
+   
+   }
+  
+   .b{
+   
+    width: 960px;
+    
+   
+   }
+  
+   .c{
+    
+    width: 960px;
+    
+   }
+  
+   .d{
+  
+    width: 960px;
+   
+   
+   }
+  
+   .cshow{
+    
+    width: 960px;
+    
+   
+   }
+
+ }

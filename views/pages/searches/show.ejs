@@ -12,8 +12,11 @@
     <link rel="stylesheet"    href="styles/modules.css"/>
 </head>
 <body>
-    <h1>My Bookcase</h1>
-    <p><a href="/">Home</a></p>
+    <div class = "grid-container">
+    <div class = "a"> <nav><h3>BEST BOOKS</h3></nav></div>
+    <div class = "b"><h1>My Bookcase</h1></div> 
+    <div class = "cshow">
+       <p><a href="/">Home</a></p>
         <ul>
             <% arrayOfBooks.forEach(item => { %>
                 <img src="<%= item.image %>"/>
@@ -24,6 +27,8 @@
                 <% console.log('>>>>>>>ITEM', item.title) %>
             <% }) %>
         </ul>
-    
+    </div> 
+    <div class = "d">CIRCLES HERE</div>
+    </div>
 </body>
 </html>
