@@ -8,14 +8,14 @@
 </head>
 <body>
     <h1>My Bookcase</h1>
-    <p><a href="../index.ejs">Home</p>
+    <p><a href="../index.ejs">Home</a></p>
         <ul>
             <% arrayOfBooks.forEach(item => { %>
-                <img src="<%= item.image%>"/>
-                <li><%= item.title%></li>
-                <li><%= item.author%></li>
-                <li><%= item.description%></li>
-                <li><%= item.isbn%></li>
+                <img src="<%= item.image %>"/>
+                <li><%= item.title %></li>
+                <li><%= item.author %></li>
+                <li><%= item.description %></li>
+                <li><%= item.isbn %></li>
                 <% console.log('>>>>>>>ITEM', item.title) %>
             <% }) %>
         </ul>
