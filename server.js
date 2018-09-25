@@ -28,10 +28,19 @@ app.get('*', (request, response) => response.status(404).send('This route does n
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 
 //HELPER FUNCTIONS
-function Book(info) {
-  const placeholderImage = 'https://libreshot.com/wp-content/uploads/2016/07/books.jpg';
+function handleError(err, res) {
+  console.error(err);
+  if(res) res.status(500).send('Sorry, something went wrong')
+}
 
-  this.title = info.title || 'No title available';
+function Book(response) {
+  console.log('>>>>response', response);
+  const placeholderImage = 'https://libreshot.com/wp-content/uploads/2016/07/books.jpg';
+  this.title = response.title || 'No title available';
+  this.author = response.authors || 'No author available';
+  this.description = response.description || 'No description available';
+  this.image = response.imageLinks.thumbnail || placeholderImage;
+  this.isbn = response.industryIdentifiers[1].identifier || 'No ISBN available';
 }
 
 function newSearch(request, response) {
@@ -41,13 +50,12 @@ function newSearch(request, response) {
 function createSearch(request, response) {
   let url = 'https://www.googleapis.com/books/v1/volumes?q=';
 
-  console.log(request.body);
-
   if (request.body.search[1] === 'title') {url += `+intitle:${request.body.search[0]}`;}
   if (request.body.search[1] === 'author') {url += `+inauthor:${request.body.search[0]}`;}
 
   superagent.get(url)
-    .then(apiResponse => apiResponse.body.items.map(book => {return new Book(book.volumeInfo);
-    }))
-
+  // .then(x => console.log(x.body.items[0].volumeInfo.))
+    .then(apiResponse => apiResponse.body.items.map(book => new Book(book.volumeInfo)))
+    .then(books => response.render('pages/searches/show', {arrayOfBooks: books}))
+    .catch(error => handleError(error, response));
 }
