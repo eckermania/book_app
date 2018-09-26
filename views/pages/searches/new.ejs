@@ -3,7 +3,8 @@
     <div class = grid-container>
         <%- include('../../layout/header') %>
        <div class = "b"><h4>Search by Title or Author</h4></div> 
-       <div class = "c"> <form action="/searches" method="post">
+       <div class = "c"> 
+           <form action="/searches" method="post">
             <input id="search" type="text" name="search" placeholder="Enter a title or author" required>
             <fieldset>
                 <label for="title">
@@ -22,5 +23,5 @@
         </div>
         <%- include('../../layout/footer') %>
         </div>
-        </body>
-        </html>
+    </body>
+</html>
