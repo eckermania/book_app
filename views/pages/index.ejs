@@ -1,40 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Book Collection</title>
-    <link rel="stylesheet"    href="styles/reset.css"/>
-    <link rel="stylesheet"    href="styles/base.css"/>
-    <link rel="stylesheet"    href="styles/icons.css"/>
-    <link rel="stylesheet"    href="styles/layout.css"/>
-    <link rel="stylesheet"    href="styles/modules.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet">
-    
-</head>
+<%- include('../layout/head') %>
 <body>
-    <div class = grid-container>
-       <div class = "a"> <nav><h3>BEST BOOKS</h3></nav></div>
-       <div class = "b"><h4>Search by Title or Author</h4></div> 
-       <div class = "c"> <form action="/searches" method="post">
-            <input id="search" type="text" name="search" placeholder="Enter a title or author" required>
-            <fieldset>
-                <label for="title">
-                    <span>Title</span>
-                    <input type="radio" name="search" value="title" required>
-                </label> 
-            </fieldset>
-            <fieldset>
-                <label for="author">
-                    <span>Author</span>
-                    <input type="radio" name="search" value="author" required>
-                </label>
-            </fieldset>
-            <button type="submit">Search the Google Book API</button>  
-        </form>
+    <%- include('../layout/header') %>
+       <div class = "b"><h4>Bookcase</h4></div> 
+        <p><a href = "/searches/new">Find a New Book</a></p>
+           <div class = "bookcase">
+            <p><%= results.length %></p>
+            <ul>
+                <% results.forEach(item => { %>
+                    <img src="<%= item.image_url %>"/>
+                    <li><%= item.title %></li>
+                    <li><%= item.author %></li>
+                    <li><%= item.book_description %></li>
+                    <li><%= item.isbn %></li>
+                    <li><%= item.bookshelf %></li>
+                    <button type="submit"><a href="/books/<%= item.id %>">View Details</a></button>
+                <% }) %>
+            </ul>
+        </div>
     </div>
-    <div class = "d"><footer>SOME CIRCLES</footer></div>
+    <%- include('../layout/footer') %>
     </div>
 </body>
 </html>

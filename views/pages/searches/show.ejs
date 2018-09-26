@@ -1,23 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Book Collection</title>
-    <link rel="stylesheet"    href="styles/reset.css"/>
-    <link rel="stylesheet"    href="styles/base.css"/>
-    <link rel="stylesheet"    href="styles/icons.css"/>
-    <link rel="stylesheet"    href="styles/layout.css"/>
-    <link rel="stylesheet"    href="styles/modules.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet">
-</head>
+<%- include('../../layout/head') %>
 <body>
-    <div class = "grid-container">
-    <div class = "a"> <nav><h3>BEST BOOKS</h3></nav></div>
+        <%- include('../../layout/header') %>
     <div class = "b"><h1>My Bookcase</h1></div> 
     <div class = "cshow">
-       <p><a href="/">Back to Search</a></p>
+       <p><a href="/">Home</a></p>
         <ul>
             <% arrayOfBooks.forEach(item => { %>
                 <img src="<%= item.image %>"/>
@@ -29,7 +15,7 @@
             <% }) %>
         </ul>
     </div> 
-    <div class = "d">CIRCLES HERE</div>
+    <%- include('../../layout/footer') %>
     </div>
 </body>
 </html>
