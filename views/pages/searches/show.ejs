@@ -11,11 +11,45 @@
                 <li><%= item.author %></li>
                 <li><%= item.description %></li>
                 <li><%= item.isbn %></li>
-                <% console.log('>>>>>>>ITEM', item.title) %>
+                <button type="submit" class="add">Select This Book</button>
+                <form action="/books" class="hidden" method="post" >
+                    <fieldset>
+                        <label for="title">
+                            <span>Title</span>
+                            <input type="text" value="<%= item.title %>" required>
+                        </label> 
+                    </fieldset>
+                    <fieldset>
+                        <label for="author">
+                            <span>Author</span>
+                            <input type="text" value="<%= item.author %>" required>
+                        </label> 
+                    </fieldset>
+                    <fieldset>
+                        <label for="description">
+                            <span>Description</span>
+                            <input type="text" value="<%= item.description %>" required>
+                        </label> 
+                    </fieldset>
+                    <fieldset>
+                        <label for="isbn">
+                            <span>ISBN</span>
+                            <input type="text" value="<%= item.isbn %>" required>
+                        </label> 
+                    </fieldset>
+                    <fieldset>
+                        <label for="bookshelf">
+                            <span>Bookshelf</span>
+                            <input type="text" required>
+                        </label> 
+                    </fieldset>
+                    <button type="submit">Add to Bookcase</button>
+                </form>
             <% }) %>
         </ul>
     </div> 
     <%- include('../../layout/footer') %>
     </div>
 </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </html>

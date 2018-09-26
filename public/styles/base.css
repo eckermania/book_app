@@ -18,6 +18,10 @@ a {
     text-decoration: none
 }
 
+.hidden {
+    display: none;
+}
+
 input[type="text"] {
     width: 60%;
     height: 30px;
