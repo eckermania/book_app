@@ -20,13 +20,15 @@
   background-color: rgb(201, 55, 55);
   width: 480px;
   height:75px; 
- 
+  line-height: 75px;
+  
  }
 
  .b{
   background-color: rgb(48, 166, 187);
   width: 480px;
   height:75px; 
+  line-height: 75px;
  
  }
 
@@ -34,6 +36,8 @@
   background-color: rgb(201, 138, 55);
   width: 480px;
   height:750px; 
+  text-align: center;
+  font-size: 2em;
  
  }
 

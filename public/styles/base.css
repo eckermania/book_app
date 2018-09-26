@@ -1,0 +1,45 @@
+body {
+    font-family: 'Goudy Bookletter 1911', serif;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    font-size: 4em;
+  }
+  
+h4, h1 {
+      text-align: center;
+      font-size: 2em;
+}
+
+a {
+    font-size: 2em;
+    text-decoration: none
+}
+
+input[type="text"] {
+    width: 60%;
+    height: 30px;
+    margin: 20px auto;
+    border-radius: 5px;
+    font-family: 'Goudy Bookletter 1911', serif;
+    font-size: .5em;
+}
+
+label {
+    display: inline-block;
+    line-height: 50px;
+}
+
+button {
+    background-color: rgb(48, 166, 187);
+    width: 25%;
+    height: 30px;
+    border: solid 2px black;
+    border-radius: 5px;
+    font-size: .5em;
+    font-family: 'Goudy Bookletter 1911', serif;
+    margin-top: 20px;
+}
+
