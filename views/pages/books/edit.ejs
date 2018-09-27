@@ -1,0 +1,37 @@
+
+<form action="/books" class="hidden" method="post" >
+  <h4>Updated Book</h4>
+  <input type="hidden" name="_method" value="put">
+  <fieldset>
+      <label >
+          <span>Title</span>
+          <input name="title" type="text" value="<%= book.title %>" required>
+      </label> 
+  </fieldset>
+  <input type="hidden" name="image_url" value="<%= book.image %>">
+  <fieldset>
+      <label >
+          <span>Author</span>
+          <input name="author" type="text" value="<%= book.author %>" required>
+      </label> 
+  </fieldset>
+  <fieldset>
+      <label >
+          <span>Description</span>
+          <input name="description" type="text" value="<%= book.description %>" required>
+      </label> 
+  </fieldset>
+  <fieldset>
+      <label >
+          <span>ISBN</span>
+          <input name="isbn"  type="text" value="<%= book.isbn %>" required>
+      </label> 
+  </fieldset>
+  <fieldset>
+      <label >
+          <span>Bookshelf</span>
+          <input name="bookshelf" type="text" required>
+      </label> 
+  </fieldset>
+  <button type="submit">Update</button>
+</form>
