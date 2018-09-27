@@ -14,33 +14,34 @@
                 <button type="submit" class="add">Select This Book</button>
                 <form action="/books" class="hidden" method="post" >
                     <fieldset>
-                        <label for="title">
+                        <label >
                             <span>Title</span>
-                            <input type="text" value="<%= item.title %>" required>
+                            <input name="title" type="text" value="<%= item.title %>" required>
                         </label> 
                     </fieldset>
+                    <input type="hidden" name="image_url" value="<%= item.image %>">
                     <fieldset>
-                        <label for="author">
+                        <label >
                             <span>Author</span>
-                            <input type="text" value="<%= item.author %>" required>
+                            <input name="author" type="text" value="<%= item.author %>" required>
                         </label> 
                     </fieldset>
                     <fieldset>
-                        <label for="description">
+                        <label >
                             <span>Description</span>
-                            <input type="text" value="<%= item.description %>" required>
+                            <input name="description" type="text" value="<%= item.description %>" required>
                         </label> 
                     </fieldset>
                     <fieldset>
-                        <label for="isbn">
+                        <label >
                             <span>ISBN</span>
-                            <input type="text" value="<%= item.isbn %>" required>
+                            <input name="isbn"  type="text" value="<%= item.isbn %>" required>
                         </label> 
                     </fieldset>
                     <fieldset>
-                        <label for="bookshelf">
+                        <label >
                             <span>Bookshelf</span>
-                            <input type="text" required>
+                            <input name="bookshelf" type="text" required>
                         </label> 
                     </fieldset>
                     <button type="submit">Add to Bookcase</button>

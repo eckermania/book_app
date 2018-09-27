@@ -2,7 +2,7 @@
 
 
 $('.add').on('click', function(){
-  console.log('clicked me', this);
+  // console.log('clicked me', this);
   $(this).next().removeClass('hidden');
 });
 

@@ -77,25 +77,25 @@ function getBooks(request, response) {
 }
 
 function getOneBook(request, response) {
-  console.log(request);
+  // console.log(request);
   let SQL = 'SELECT * from books WHERE id=$1;';
   let values = [request.params.id];
 
   return client.query(SQL, values)
+    // .then(results => console.log(results.rows[0].id))
     .then(result => response.render('pages/books/show', { book: result.rows[0] }))
     .catch(error => handleError(error, response));
 }
 
 function addBook(request, response) {
-  // console.log(request.body);
+  console.log(request.body);
   let { author, title, isbn, image_url, book_description, bookshelf } = request.body;
   let SQL = 'INSERT INTO books(author, title, isbn, image_url, book_description, bookshelf) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;';
 
   let values = [author, title, isbn, image_url, book_description, bookshelf];
 
   return client.query(SQL, values)
-    // .then(results => console.log(results.rows[0].id))
-    .then(results => response.redirect(`books/${results.rows[0].id}`))
+    .then(results => response.redirect(`/books/${results.rows[0].id}`))
     .catch(err => handleError(err, response));
 
 }
