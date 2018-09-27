@@ -10,9 +10,9 @@ CREATE TABLE IF NOT EXISTS books (
   bookshelf VARCHAR(255)
 );
 
-INSERT INTO books (id, author, title, isbn, image_url, book_description, bookshelf) 
+INSERT INTO books (author, title, isbn, image_url, book_description, bookshelf) 
 VALUES (
-    1, 
+     
   'China Mieville', 
   'Perdido Street Station', 
   9780345464521, 
@@ -21,9 +21,9 @@ VALUES (
 'Fantasy'
 );
 
-INSERT INTO books (id, author, title, isbn, image_url, book_description, bookshelf)
+INSERT INTO books (author, title, isbn, image_url, book_description, bookshelf)
 VALUES (
-    2,
+    
     'Orson Scott Card',
     'Ender''s Game',
     9781608872770,
