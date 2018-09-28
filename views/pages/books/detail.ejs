@@ -8,8 +8,6 @@
                 <p>Description: <%= book.book_description %></p>
                 <p>ISBN: <%= book.isbn %></p>
                 <p>Bookshelf: <%= book.bookshelf %></p>
-                <button type="submit">Edit</button>
-                <p><%= book.id %></p>
                 <button type="submit" class="delete" method="post" formaction="/books/<%= book.id %>">Delete</button>
         </li>
         </ul>
