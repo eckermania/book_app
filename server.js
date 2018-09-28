@@ -117,7 +117,7 @@ function updateBook(request, response) {
   let values = [author, title, isbn, image_url, book_description, bookshelf, request.params.id];
 
   client.query(SQL, values)
-    .then(response.redirect(`/book/${request.params.id}`))
+    .then(response.redirect(`/books/${request.params.id}`))
     .catch(err => handleError(err, response));
 
 }
