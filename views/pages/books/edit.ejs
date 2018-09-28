@@ -1,5 +1,5 @@
 
-<form action="/books" class="hidden" method="post" >
+<form action="/books/<%= book.id %>" class="hidden" method="post" >
   <h4>Updated Book</h4>
   <input type="hidden" name="_method" value="put">
   <fieldset>
@@ -8,7 +8,7 @@
           <input name="title" type="text" value="<%= book.title %>" required>
       </label> 
   </fieldset>
-  <input type="hidden" name="image_url" value="<%= book.image %>">
+  <input type="hidden" name="image_url" value="<%= book.image_url %>">
   <fieldset>
       <label >
           <span>Author</span>
@@ -18,7 +18,7 @@
   <fieldset>
       <label >
           <span>Description</span>
-          <input name="description" type="text" value="<%= book.description %>" required>
+          <input name="book_description" type="text" value="<%= book.description %>" required>
       </label> 
   </fieldset>
   <fieldset>
