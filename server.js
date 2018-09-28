@@ -123,7 +123,7 @@ function updateBook(request, response) {
 
 function deleteBook(request, response) {
   console.log('in function')
-  let SQL = 'DELETE from books WHERE id=$1'
+  let SQL = 'DELETE from books WHERE id=$1;';
   let values = [request.params.id];
 
   client.query(SQL, values)
