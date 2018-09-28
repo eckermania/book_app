@@ -15,7 +15,7 @@ app.use(express.static('./public'));
 app.use(express.urlencoded({ extended: true }));
 
 
-app.use(methodOverride((request, response) => {
+app.use(methodOverride((request) => {
   if (request.body && typeof request.body === 'object' && '_method' in request.body) {
     let method = request.body._method;
     delete request.body._method;
@@ -23,7 +23,7 @@ app.use(methodOverride((request, response) => {
   }
 }))
 
-const client = new pg.Client('postgres://localhost:5432/books_app');
+const client = new pg.Client('postgres://localhost:5432/books');
 client.connect();
 client.on('error', err => console.log(err));
 
@@ -38,6 +38,7 @@ app.get('/searches/new', newSearch);
 app.post('/books', addBook);
 app.put('/books/:id', updateBook);
 app.get('/books/:id', getOneBook);
+app.delete('/books/:id', deleteBook);
 
 
 
@@ -88,12 +89,10 @@ function getBooks(request, response) {
 }
 
 function getOneBook(request, response) {
-  // console.log(request);
   let SQL = 'SELECT * from books WHERE id=$1;';
   let values = [request.params.id];
 
   return client.query(SQL, values)
-    // .then(results => console.log(results.rows[0].id))
     .then(result => response.render('pages/books/show', { book: result.rows[0] }))
     .catch(error => handleError(error, response));
 }
@@ -120,4 +119,14 @@ function updateBook(request, response) {
     .then(response.redirect(`/books/${request.params.id}`))
     .catch(err => handleError(err, response));
 
+}
+
+function deleteBook(request, response) {
+  console.log('in function')
+  let SQL = 'DELETE from books WHERE id=$1'
+  let values = [request.params.id];
+
+  client.query(SQL, values)
+    .then(response.redirect(`/`))
+    .catch(err => handleError(err, response));
 }
