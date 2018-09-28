@@ -18,7 +18,7 @@
   <fieldset>
       <label >
           <span>Description</span>
-          <input name="book_description" type="text" value="<%= book.description %>" required>
+          <input name="book_description" type="text" value="<%= book.book_description %>" required>
       </label> 
   </fieldset>
   <fieldset>
@@ -30,7 +30,7 @@
   <fieldset>
       <label >
           <span>Bookshelf</span>
-          <input name="bookshelf" type="text" required>
+          <input name="bookshelf" type="text" value="<%= book.bookshelf %>" required>
       </label> 
   </fieldset>
   <button type="submit">Update</button>
