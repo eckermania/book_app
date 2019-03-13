@@ -1,6 +1,7 @@
 'use strict';
 
 // Application Dependencies
+require('dotenv').config();
 const express = require('express');
 const superagent = require('superagent');
 const pg = require('pg');
@@ -8,7 +9,7 @@ const methodOverride = require('method-override');
 
 // Application Setup
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 // Application Middleware
 app.use(express.static('./public'));
@@ -23,7 +24,7 @@ app.use(methodOverride((request) => {
   }
 }))
 
-const client = new pg.Client('postgres://localhost:5432/books');
+const client = new pg.Client(process.env.DATABASE);
 client.connect();
 client.on('error', err => console.log(err));
 
@@ -112,7 +113,7 @@ function addBook(request, response) {
 
 function updateBook(request, response) {
   let { author, title, isbn, image_url, book_description, bookshelf } = request.body;
-  let SQL = 'UPDATE books SET author=$1, title=$2, isbn=$3, image_url=$4, book_description=$5, bookshelf=$6 WHERE id=$7;';
+  let SQL = 'UPDATE book_app SET author=$1, title=$2, isbn=$3, image_url=$4, book_description=$5, bookshelf=$6 WHERE id=$7;';
   let values = [author, title, isbn, image_url, book_description, bookshelf, request.params.id];
 
   client.query(SQL, values)
@@ -123,7 +124,7 @@ function updateBook(request, response) {
 
 function deleteBook(request, response) {
   console.log('in function')
-  let SQL = 'DELETE from books WHERE id=$1;';
+  let SQL = 'DELETE from book_app WHERE id=$1;';
   let values = [request.params.id];
 
   client.query(SQL, values)
