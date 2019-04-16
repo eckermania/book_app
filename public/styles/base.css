@@ -22,15 +22,6 @@ a {
     display: none;
 }
 
-input[type="text"] {
-    width: 60%;
-    height: 30px;
-    margin: 20px auto;
-    border-radius: 5px;
-    font-family: 'Goudy Bookletter 1911', serif;
-    font-size: .5em;
-}
-
 label {
     display: inline-block;
     line-height: 50px;
@@ -38,12 +29,20 @@ label {
 
 button {
     background-color: rgb(48, 166, 187);
-    width: 25%;
-    height: 30px;
+    display: block;
+    width: 26vw;
+    margin: 5vw 36vw;
     border: solid 2px black;
     border-radius: 5px;
-    font-size: .5em;
+    font-size: 3vw;
     font-family: 'Goudy Bookletter 1911', serif;
-    margin-top: 20px;
 }
 
+#book-detail {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.book-item > * {
+    width: 100vw;
+}

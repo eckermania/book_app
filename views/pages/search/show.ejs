@@ -34,14 +34,16 @@
                     </fieldset>
                     <fieldset>
                         <label >
-                            <span>ISBN</span>
-                            <input name="isbn"  type="text" value="<%= item.isbn %>" required>
-                        </label> 
-                    </fieldset>
-                    <fieldset>
-                        <label >
                             <span>Bookshelf</span>
-                            <input name="bookshelf" type="text" required>
+                            <select name="bookshelf" required>
+                                <option disabled>Select Genre</option>
+                                <option value="fantasy">Fantasy</option>
+                                <option value="historical-fiction">Historical Fiction</option>
+                                <option value="humor">Humor</option>
+                                <option value="mystery">Mystery</option>
+                                <option value="nonfiction">Nonfiction</option>
+                                <option value="sci-fi">Science Fiction</option>
+                            </select>
                         </label> 
                     </fieldset>
                     <button type="submit">Add to Bookcase</button>

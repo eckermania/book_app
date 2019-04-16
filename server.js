@@ -34,8 +34,8 @@ app.set('view engine', 'ejs');
 
 // API Routes - rendering the search form
 app.get('/', getBooks);
-app.post('/searches', createSearch);
-app.get('/searches/new', newSearch);
+app.post('/search', createSearch);
+app.get('/search/new', newSearch);
 app.post('/books', addBook);
 app.put('/books/:id', updateBook);
 app.get('/books/:id', getOneBook);
@@ -57,16 +57,16 @@ function handleError(err, res) {
 }
 
 function Book(response) {
+  console.log(response);
   const placeholderImage = 'https://libreshot.com/wp-content/uploads/2016/07/books.jpg';
   this.title = response.title || 'No title available';
   this.author = response.authors || 'No author available';
   this.description = response.description || 'No description available';
-  this.image = response.imageLinks.thumbnail || placeholderImage;
-  this.isbn = response.industryIdentifiers[1].identifier || 'No ISBN available';
+  this.image = response.imageLinks === undefined ? placeholderImage : response.imageLinks.thumbnail;
 }
 
 function newSearch(request, response) {
-  response.render('pages/searches/new');
+  response.render('pages/search/new');
 }
 
 function createSearch(request, response) {
@@ -77,7 +77,7 @@ function createSearch(request, response) {
 
   superagent.get(url)
     .then(apiResponse => apiResponse.body.items.map(book => new Book(book.volumeInfo)))
-    .then(books => response.render('pages/searches/show', { arrayOfBooks: books }))
+    .then(books => response.render('pages/search/show', { arrayOfBooks: books }))
     .catch(error => handleError(error, response));
 }
 
@@ -99,7 +99,6 @@ function getOneBook(request, response) {
 }
 
 function addBook(request, response) {
-  console.log(request.body);
   let { author, title, isbn, image_url, book_description, bookshelf } = request.body;
   let SQL = 'INSERT INTO books(author, title, isbn, image_url, book_description, bookshelf) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;';
 
@@ -124,7 +123,8 @@ function updateBook(request, response) {
 
 function deleteBook(request, response) {
   console.log('in function')
-  let SQL = 'DELETE from book_app WHERE id=$1;';
+  let SQL = 'DELETE from books WHERE id=$1;';
+  console.log(SQL);
   let values = [request.params.id];
 
   client.query(SQL, values)
